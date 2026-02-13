@@ -22,8 +22,7 @@ const client = new StrinovaSapphireClient(
 		tasks: {
 			bull: {
 				connection: {
-					host: 'localhost',
-					port: 6379
+					url: process.env.REDIS_URL
 				}
 			}
 		}

@@ -44,5 +44,6 @@ declare module '@skyra/env-utilities' {
 		MainServer_StardustLogChannelID: string;
 		Statbot_Key: string;
 		DATABASE_URL: string;
+		REDIS_URL: string;
 	}
 }
