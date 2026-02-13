@@ -41,6 +41,7 @@ RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
 COPY . .
 
 # Generate Prisma client if needed, then build
+RUN npx prisma generate	
 RUN pnpm run build
 
 #############################################
@@ -67,6 +68,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends curl \
 COPY --from=prod-deps /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
 COPY package.json ./
+COPY prisma ./prisma
+
+RUN npx prisma generate
 
 # Security: run as non-root user
 USER node
