@@ -11,6 +11,14 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable && mkdir -p /pnpm/store
 WORKDIR /app
 
+# Install build dependencies for native modules (python3, make, g++, openssl)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
+    make \
+    g++ \
+    openssl \
+    && rm -rf /var/lib/apt/lists/*
+
 # Only copy manifest files first for better layer caching
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 
