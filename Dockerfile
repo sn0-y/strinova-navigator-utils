@@ -12,7 +12,7 @@ RUN corepack enable && mkdir -p /pnpm/store
 WORKDIR /app
 
 # Only copy manifest files first for better layer caching
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 
 # Pre-fetch dependencies to leverage pnpm store across stages (no install yet)
 RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
