@@ -6,7 +6,8 @@
 FROM node:22-slim AS base
 ENV PNPM_HOME="/pnpm" \
 	NODE_ENV=production \
-	TZ=UTC
+	TZ=UTC \
+	CI=true
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable && mkdir -p /pnpm/store
 WORKDIR /app
