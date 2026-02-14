@@ -1,7 +1,7 @@
 # Nixpacks configuration file
 # https://nixpacks.com/docs/configuration/file
 
-providers = ["...", "node"]
+providers = ["node"]
 
 [phases.setup]
 nixPkgs = ["openssl", "python3", "gcc", "gnumake", "curl"]
