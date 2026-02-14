@@ -1,0 +1,22 @@
+# Nixpacks configuration file
+# https://nixpacks.com/docs/configuration/file
+
+providers = ["...", "node"]
+
+[phases.setup]
+nixPkgs = ["openssl", "python3", "gcc", "gnumake", "curl"]
+
+[phases.install]
+cmds = ["pnpm install --frozen-lockfile"]
+
+[phases.build]
+cmds = ["npx prisma generate", "pnpm run build"]
+
+[start]
+cmd = "node dist/index.js"
+
+[variables]
+NODE_ENV = 'production'
+TZ = 'UTC'
+CI = 'true'
+PRISMA_SKIP_POSTINSTALL_GENERATE = 'true'
