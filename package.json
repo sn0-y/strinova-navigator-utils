@@ -1,9 +1,6 @@
 {
   "name": "strinova-navigator-utils",
   "version": "2.0.1",
-  "engines": {
-    "node": "22"
-  },
   "packageManager": "pnpm@latest",
   "main": "dist/index.js",
   "author": "@miekohikari",
